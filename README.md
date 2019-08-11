@@ -12,3 +12,9 @@
 4. Automate Data Pipelines
 5. Projects
     * Interview projects
+
+Some other objects
+* Clean Code
+
+### References
+* The Data Engineering Cookbook
