@@ -5,24 +5,25 @@
     - a time-series data database
     - an efficient and low-cost data warehouse
 
-* Query Data
-    * SELECT
+### Query Data
+* SELECT
+    - Avoid using * since retrieving all columns from the table increases the traffic between the database and application layers. As a result, your applications will be slow and less scalable
 
-        SELECT
-            col_1,
-            col_2
-        FROM
-            table_name;
-        - Avoid using * since retrieving all columns from the table increases the traffic between the database and application layers. As a result, your applications will be slow and less scalable
-        - Here is an example to SELECT with expressions ( || -> concatenation operator)
+            SELECT
+                col_1,
+                col_2
+            FROM
+                table_name;
 
-        SELECT 
-            first_name || ' ' || last_name AS full_name,
-            email
-        FROM 
-            customer;
+    - Here is an example to SELECT with expressions ( || -> concatenation operator)
 
-    * ORDER BY (use ASC by default)
+            SELECT 
+                first_name || ' ' || last_name AS full_name,
+                email
+            FROM 
+                customer;
+
+* ORDER BY (use ASC by default)
 
         SELECT
             col_1,
@@ -32,27 +33,180 @@
         ORDER By
             col_1 ASC,
             col_2 DESC;
-        - PostgreSQL allows you to sort rows based on the columns that even does not appear in the selection list
+    - Ranking order: start from the bottom line (E.g. Rank by col_2 DESC and then rank by col_1 ASC)
+    - PostgreSQL allows you to sort rows based on the columns that even does not appear in the selection list
 
-    * SELECT DISTINCT
+* SELECT DISTINCT
+    - To remove duplicate rows from the result set
 
+            SELECT
+                DISTINCT col_1, col_2
+            FROM
+                table_name;
+
+    - Select the unique combination of bcolor and fcolor
+
+            SELECT
+                DISTINCT bcolor,
+                fcolor
+            FROM
+                t1
+            ORDER BY
+                bcolor,
+                fcolor;
+
+    - Select the unique bcolor and show fcolor as well. The value of fcolor will be the first occurence paired with bcolor
+
+            SELECT
+                DISTINCT ON
+                (bcolor) bcolor,
+                fcolor
+            FROM
+                t1
+            ORDER BY
+                bcolor,
+                fcolor;
+
+### Filter Data
+* WHERE
+    - Use IN to select a column with matched value in the following list.
+
+            SELECT
+                first_name,
+                last_name
+            FROM
+                customer
+            WHERE 
+                first_name IN ('Ann','Anne','Annie');
+
+    - Return all customers whose names **start with** the string Ann
+
+            SELECT
+                first_name,
+                last_name
+            FROM
+                customer
+            WHERE 
+                first_name LIKE 'Ann%';
+
+    - Use LENGTH() function returns the number of characters of the input string
+
+            SELECT
+                first_name,
+                LENGTH(first_name) name_length
+            FROM
+                customer
+            WHERE 
+                first_name LIKE 'A%' AND
+                LENGTH(first_name) BETWEEN 3 AND 5
+            ORDER BY
+                name_length;
+
+            SELECT 
+                first_name, 
+                last_name
+            FROM 
+                customer 
+            WHERE 
+                first_name LIKE 'Bra%' AND
+                last_name != 'Motley';
+
+* LIMIT
+        
         SELECT
-            DISTINCT col_1, col_2
+            film_id,
+            title,
+            release_year
         FROM
-            table_name;
-        - To remove duplicate rows from the result set
-
-        SELECT
-            DISTINCT ON (col_1) col_alias,
-            col_2
-        FROM
-            table_name
+            film
         ORDER BY
-            col_1,
-            col_2;
-        - Notice that the DISTINCT ON expression must match the leftmost expression in the ORDER BY clause
+            film_id
+        LIMIT 4 OFFSET 3;
+        - Use OFFSET to skip the first n rows
+
+* FETCH
+
+        SELECT
+            film_id,
+            title
+        FROM
+            film
+        ORDER BY
+            title 
+        FETCH FIRST 1 ROW ONLY;
+        - The LIMIT clause is not a SQL-standard. To conform with the SQL standard, PostgreSQL provides the FETCH clause to retrieve a portion of rows returned by a query. 
+
+* IN
+        
+        SELECT
+            first_name,
+            last_name
+        FROM
+            customer
+        WHERE
+            customer_id IN (
+                SELECT
+                    customer_id
+                FROM
+                    rental
+                WHERE
+                    CAST (return_date AS DATE) = '2005-05-27'
+            );
+        - Use IN with a subquery
+
+* BETWEEN
+
+        SELECT
+            customer_id,
+            payment_id,
+            amount,
+            payment_date
+        FROM
+            payment
+        WHERE
+            payment_date BETWEEN '2007-02-07'
+        AND '2007-02-15';
+        - Use BETWEEN to select data in a certain period (use the literal date in ISO 8601 format)
+
+* LIKE
+    - % for matching any sequence of characters
+    - _ for matching any single character
+    - ILIKE operator matches value case-insensitively
+
+            SELECT
+                first_name,
+                last_name
+            FROM
+                customer
+            WHERE
+                first_name ILIKE 'BAR%';
+
+* NULL
+    - To check if any value is NULL in a column, you should use xxx IS NULL. "phone = NULL" will always return false
+            
+            SELECT
+                id,
+                first_name,
+                last_name,
+                email,
+                phone
+            FROM
+                contacts
+            WHERE
+                phone IS NULL;
+
+* Table and column aliases
+    - To make the query shorter, you can use the table aliases for the table names listed on FROM and INNER JOIN clauses. (AS could be omitted)
+
+            SELECT t1.column_name, 
+                    t2.column_name
+            FROM table_name1 t1
+            INNER JOIN table_name2 t2 ON join_predicate;
+
+### Join Multiple Tables
 
 
+-----
 * Create a schema
 
         CREATE SCHEMA mailchimp
