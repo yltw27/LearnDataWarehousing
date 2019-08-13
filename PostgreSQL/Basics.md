@@ -204,6 +204,47 @@
             INNER JOIN table_name2 t2 ON join_predicate;
 
 ### Join Multiple Tables
+* JOIN
+    - PostgreSQL join is used to combine columns from one (self-join) or more tables based on the values of the common columns between the tables. The common columns are typically the primary key columns of the first table and foreign key columns of the second table
+
+    ![PostgreSQL-Joins](PostgreSQL-Joins.png)
+
+    - Below lines will return (left circle - right circle)
+
+            SELECT
+                a.id id_a,
+                a.fruit fruit_a,
+                b.id id_b,
+                b.fruit fruit_b
+            FROM
+                basket_a a
+            LEFT JOIN basket_b b ON a.fruit = b.fruit
+            WHERE b.id IS NULL;
+
+    - Select independent items
+
+            SELECT
+                a.id id_a,
+                a.fruit fruit_a,
+                b.id id_b,
+                b.fruit fruit_b
+            FROM
+                basket_a a
+            FULL OUTER JOIN basket_b b ON a.fruit = b.fruit
+            WHERE a.id IS NULL OR b.id IS NULL;
+
+    - INNER JOIN
+        * For each row in the A table, PostgreSQL scans the B table to check if there is any row that matches the condition. If it finds a match, it combines columns of both rows into one row and add the combined row to the returned result set
+
+    - SELF JOIN
+        * Check examples on [http://www.postgresqltutorial.com/postgresql-self-join/](http://www.postgresqltutorial.com/postgresql-self-join/)
+
+    - FULL [OUTER] JOIN
+        * The OUTER keyword is optional
+
+    - CROSS JOIN
+        * CROSS JOIN does not have any matching condition in the join clause
+        ![PostgreSQL-CROSS-JOIN](PostgreSQL-CROSS-JOIN.png)
 
 
 -----
