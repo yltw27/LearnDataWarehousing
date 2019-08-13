@@ -246,6 +246,30 @@
         * CROSS JOIN does not have any matching condition in the join clause
         ![PostgreSQL-CROSS-JOIN](PostgreSQL-CROSS-JOIN.png)
 
+### Group Data
+
+        SELECT
+           customer_id,
+           SUM (amount)
+        FROM
+           payment
+        GROUP BY
+           customer_id
+        ORDER BY
+           SUM (amount) DESC;
+* COUNT() is also a common aggregate function to use along with GROUP BY
+
+        SELECT
+            customer_id,
+            SUM (amount)
+        FROM
+            payment
+        GROUP BY
+            customer_id
+        HAVING
+            SUM (amount) > 200;
+* Use HAVING to set conditions
+
 
 -----
 * Create a schema
