@@ -30,7 +30,7 @@
             col_2
         FROM
             table_name
-        ORDER By
+        ORDER BY
             col_1 ASC,
             col_2 DESC;
     - Ranking order: start from the bottom line (E.g. Rank by col_2 DESC and then rank by col_1 ASC)
