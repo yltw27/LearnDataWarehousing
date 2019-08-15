@@ -1,4 +1,4 @@
-# PostgreSQL
+# PostgreSQL Basics: Fetch Data
 
 * PostgreSQL, as the most advanced open source database, is so flexible that can serve as the folllowing solutions, and you can also integrate it with several analytics tools
     - a simple relational database
@@ -270,13 +270,67 @@
             SUM (amount) > 200;
 * Use HAVING to set conditions
 
+### Perform Set Operations
+* Union
+    - Both queries must return the same number of columns
+    - The corresponding columns in the queries must have compatible data types
+    - The UNION operator removes all duplicate rows unless the UNION ALL is used
+    - We often use the UNION operator to combine data from similar tables that are not perfectly normalized
 
------
-* Create a schema
+            SELECT
+                column_1,
+                column_2
+            FROM
+                tbl_name_1
+            UNION
+            SELECT
+                column_1,
+                column_2
+            FROM
+                tbl_name_2;
 
-        CREATE SCHEMA mailchimp
-    
-    * There are 2 schema definitions
-        1. How the tables and fields in a database are related to each other
-        2. A folder for database tables
-    * MySQL databases don’t support schema, so you may want to use a naming convention to name the tables you import, such as mailchimp_contacts
+* INTERSECT
+
+        SELECT
+            column_list
+        FROM
+            A
+        INTERSECT
+        SELECT
+            column_list
+        FROM
+            B;
+    - The number of columns and their order in the SELECT clauses must the be the same
+    - The data types of the columns must be compatible
+
+* EXCEPT
+
+        SELECT column_list
+        FROM A
+        WHERE condition_a
+        EXCEPT 
+        SELECT column_list
+        FROM B
+        WHERE condition_b;
+    - Same rules as INTERSECT
+
+### Group Sets
+
+* http://www.postgresqltutorial.com/postgresql-grouping-sets/
+
+### Subquery
+
+* http://www.postgresqltutorial.com/postgresql-subquery/
+
+### CTE, Common Table Expressions
+* http://www.postgresqltutorial.com/postgresql-cte/
+* A common table expression is a temporary result set which you can reference within another SQL statement including SELECT, INSERT, UPDATE or DELETE
+
+        WITH cte_name (column_list) AS (
+            CTE_query_definition 
+        )
+        statement;
+
+    1. Specify the name of the CTE following by an optional column list
+    2. Inside the body of the WITH clause, specify a query that returns a result set. If you do not explicitly specify the column list after the CTE name, the select list of the CTE_query_definition will become the column list of the CTE
+    3. Use the CTE like a table or view in the statement which can be a SELECT, INSERT, UPDATE, or DELETE
