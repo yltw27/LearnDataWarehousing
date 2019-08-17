@@ -29,9 +29,7 @@ We can assume the data engineers are specialists from the field of software engi
         - Data Warehousing (ETL)
         - Data Lake (ELT)
 3. Learn SQL
-    * Online courses
-        - [Intermediate SQL](https://www.datacamp.com/courses/intermediate-sql/)
-        - [Joining Data in SQL](https://www.datacamp.com/courses/joining-data-in-postgresql)
+    * [Mode: SQL Tutorial](https://mode.com/resources/sql-tutorial/sql-in-mode/)
     * Leetcode
 4. Big Data Tools
 5. Cloud Platforms
