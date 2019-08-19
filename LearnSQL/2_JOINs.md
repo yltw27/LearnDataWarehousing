@@ -30,7 +30,7 @@ Based on
 ### LEFT JOIN/ RIGHT JOIN
 * The LEFT JOIN/RIGHT JOIN command tells the database to **return all rows in the table in the FROM clause**, regardless of whether or not they have matches in the table in the LEFT/RIGHT JOIN clause.
 
-
+![PostgreSQL JOINs](attachments/PostgreSQL-Joins.png)
 
 ### SELF JOIN: INNER JOIN the same table
 * Add AND to avoid self-matching of SELF JOIN
