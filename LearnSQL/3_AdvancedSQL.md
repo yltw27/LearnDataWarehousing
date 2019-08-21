@@ -205,8 +205,13 @@ Based on [Mode: SQL Tutorial](https://mode.com/sql-tutorial/)
 
 * Reduce table size
     * Filtering the data to include only the observations you need can dramatically improve query speed. E.g. Set WHERE constraints
-    * In general, when working with subqueries, you should make sure to limit the amount of data you’re working with in the place where it will be executed first. This means **putting the LIMIT in the subquer**, not the outer query. Again, this is for making the query run fast so that you can test. NOT for producing good results.
+    * In general, when working with subqueries, you should make sure to limit the amount of data you’re working with in the place where it will be executed first. This means **putting the LIMIT in the subquery**, not the outer query. Again, this is for making the query run fast so that you can test. NOT for producing good results.
 
 * Make joins less complicated
+    * It’s better to reduce table sizes before joining them. (e.g. subquery, WHERE)
 
 * EXPLAIN
+    * You can add EXPLAIN at the beginning of any query to get a sense of how long it will take. It’s not perfectly accurate, but it’s a useful tool.
+
+### Pivoting Data in SQL
+* [More](https://mode.com/resources/sql-tutorial/sql-pivot-table/)
