@@ -207,7 +207,7 @@
 * JOIN
     - PostgreSQL join is used to combine columns from one (self-join) or more tables based on the values of the common columns between the tables. The common columns are typically the primary key columns of the first table and foreign key columns of the second table
 
-    ![PostgreSQL-Joins](PostgreSQL-Joins.png)
+    ![PostgreSQL-Joins](attachments/PostgreSQL-Joins.png)
 
     - Below lines will return (left circle - right circle)
 
@@ -244,7 +244,7 @@
 
     - CROSS JOIN
         * CROSS JOIN does not have any matching condition in the join clause
-        ![PostgreSQL-CROSS-JOIN](PostgreSQL-CROSS-JOIN.png)
+        ![PostgreSQL-CROSS-JOIN](attachments/PostgreSQL-CROSS-JOIN.png)
 
 ### Group Data
 
