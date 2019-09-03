@@ -24,10 +24,14 @@ Based on [Carnegie Mellon University, 15-445/645 Intro to Database Systems, Fall
 
 ### Relational Model
 * Integrity constraints: primary keys, foreign keys.
+    * A relation's primary key is a candidate key that is deemed more **important** that other candidate keys.
 * A relational model is independent of any query language implementation.
 * A data model is a collection of concepts for describing the data in a database.
 
-(02 21:11)
-
 ### Relational Algebra
+* Fundamental operations to retrieve and manipulate tuples in a relation.
+* Each operator takes one or more relations as its inputs and outputs a new relation.
+
+![Relational Algebra](attachments/relational_algebra.gif)
+
 
