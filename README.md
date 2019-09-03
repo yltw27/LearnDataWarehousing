@@ -13,23 +13,24 @@ We can assume the data engineers are specialists from the field of software engi
 ### HOW-TO (based on [Who Is a Data Engineer & How to Become a Data Engineer?](https://towardsdatascience.com/who-is-a-data-engineer-how-to-become-a-data-engineer-1167ddc12811))
 1. [Algorithms and Data Structures](https://github.com/friday27/JavaDSA)
 2. Databases
+    * Reading Materials
+        * [Mode: SQL Tutorial](https://mode.com/resources/sql-tutorial/sql-in-mode/)
+        * [PostgreSQL Tutorial](http://www.postgresqltutorial.com/)
+
     * Online courses
-        * [Intro to Database Systems](https://www.youtube.com/playlist?list=PLSE8ODhjZXjYutVzTeAds8xUt1rcmyT7x)
-            * Textbook: Database System Concepts, 6th edition, Silberschatz, Korth and Sudarshan
-        * [Advanced Database Systems](https://www.youtube.com/playlist?list=PLSE8ODhjZXja7K1hjZ01UTVDnGQdx5v5U)
+        * [Udemy: Database Design](https://www.udemy.com/course/database-design/)
+
+        * [Database Management Essentials](https://www.coursera.org/learn/database-management/)
+        * [Carnegie Mellon University: Intro to Database Systems](https://www.youtube.com/playlist?list=PLSE8ODhjZXjYutVzTeAds8xUt1rcmyT7x)
     * Others
         * How to design relational database (PostgreSQL)
         * How to design non-relational database (Cassandra)
         * Data Warehousing (ETL)
         * Data Lake (ELT)
-3. Learn SQL
-    * [Mode: SQL Tutorial](https://mode.com/resources/sql-tutorial/sql-in-mode/)
-    * [PostgreSQL Tutorial](http://www.postgresqltutorial.com/)
-    * Leetcode
-4. Big Data Tools (Spark, HDFS, MapReduce.. Hadoop)
-5. Cloud Platforms (AWS, GCP)
-6. Distributed Systems
-7. Data Pipelines
+3. Big Data Tools (Spark, HDFS, MapReduce.. Hadoop)
+4. Cloud Platforms (AWS, GCP)
+5. Distributed Systems
+6. Data Pipelines
 
 ### More TODOs
 - Unit test
