@@ -12,27 +12,29 @@ We can assume the data engineers are specialists from the field of software engi
 
 ### HOW-TO (based on [Who Is a Data Engineer & How to Become a Data Engineer?](https://towardsdatascience.com/who-is-a-data-engineer-how-to-become-a-data-engineer-1167ddc12811))
 1. [Algorithms and Data Structures](https://github.com/friday27/JavaDSA)
-2. Databases
+2. Database Systems
     * Reading Materials
         * [Mode: SQL Tutorial](https://mode.com/resources/sql-tutorial/sql-in-mode/)
         * [PostgreSQL Tutorial](http://www.postgresqltutorial.com/)
-
     * Online courses
-        * [Udemy: Database Design](https://www.udemy.com/course/database-design/)
-
-        * [Database Management Essentials](https://www.coursera.org/learn/database-management/)
-        * [Carnegie Mellon University: Intro to Database Systems](https://www.youtube.com/playlist?list=PLSE8ODhjZXjYutVzTeAds8xUt1rcmyT7x)
+        * Coursera: Core Database Concepts
+        * Coursera: NoSQL Database Systems
+        * Coursera: Distributed Database Systems
     * Others
         * How to design relational database (PostgreSQL)
         * How to design non-relational database (Cassandra)
         * Data Warehousing (ETL)
         * Data Lake (ELT)
 3. Big Data Tools (Spark, HDFS, MapReduce.. Hadoop)
+    * Online courses - Cognitive Class
 4. Cloud Platforms (AWS, GCP)
 5. Distributed Systems
 6. Data Pipelines
 
 ### More TODOs
+- Coursera: The Bits and Bytes of Computer Networking
+- [Basic ML](https://www.youtube.com/watch?v=ZhNpTiY4NcU&list=PL_c9BZzLwBRIPaKlO5huuWQdcM3iYqF2w)
+- [Basic CS](https://www.youtube.com/watch?v=EShch7iDIWE&list=PL_c9BZzLwBRKk9m5ketXHUD2ASE7z_ya9)
 - Unit test
 - Functional programming
 - How to use build management tools like Maven
