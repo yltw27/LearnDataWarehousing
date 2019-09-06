@@ -16,17 +16,12 @@ We can assume the data engineers are specialists from the field of software engi
     * Reading Materials
         * [Mode: SQL Tutorial](https://mode.com/resources/sql-tutorial/sql-in-mode/)
         * [PostgreSQL Tutorial](http://www.postgresqltutorial.com/)
-    * Online courses
-        * Coursera: Core Database Concepts
-        * Coursera: NoSQL Database Systems
-        * Coursera: Distributed Database Systems
     * Others
         * How to design relational database (PostgreSQL)
         * How to design non-relational database (Cassandra)
         * Data Warehousing (ETL)
         * Data Lake (ELT)
 3. Big Data Tools (Spark, HDFS, MapReduce.. Hadoop)
-    * Online courses - Cognitive Class
 4. Cloud Platforms (AWS, GCP)
 5. Distributed Systems
 6. Data Pipelines
@@ -37,7 +32,7 @@ We can assume the data engineers are specialists from the field of software engi
 - [Basic CS](https://www.youtube.com/watch?v=EShch7iDIWE&list=PL_c9BZzLwBRKk9m5ketXHUD2ASE7z_ya9)
 - Unit test
 - Functional programming
-- How to use build management tools like Maven
+- How to use build management tools like Maven or Gradle
 - Clean code
 
 ### References
